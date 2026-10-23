@@ -35,7 +35,7 @@ rni-club/
 │   │   ├── hero.jpg        # Combat Robotics Hero Visual
 │   │   ├── robovanza.jpg   # ROBOVANZA Flagship Arena Banner
 │   │   ├── projects/       # Technical Project Images
-│   │   ├── team/           # Executive & Team Vector Avatars (SVG)
+│   │   ├── team/           # Core Team Portraits, Full Posters & Avatars
 │   │   └── gallery/        # Competition & Lab Photos
 │   └── icons/
 │
@@ -54,7 +54,7 @@ rni-club/
 6. **Achievements**: Medals & intercollegiate fests (Vasavi College Acumen 2026, GITAM Havana 2025, IIT Guwahati Techniche, BITS ATMOS, SNIST).
 7. **ROBOVANZA 10.0**: 10th decennial celebration banner, statistics, and 2018–2026 legacy timeline.
 8. **Events**: 6 main ROBOVANZA competitions (Robo Wars, Robo Soccer, Robo Sumo, Robo Rover, Line Follower, FPV Racing).
-9. **Our Team**: Executive leadership (President Bhuvan Balaji, Vice President Yeshwanth Pullur, Treasurer M. Pranav) and subteam categories.
+9. **Our Team**: Official Core Team (President, Vice President, General Secretary, Joint Secretary, Treasurer) and dedicated sub-wings: Combat Wing (2 Heads, 9 Deputies), Research Wing (2 Heads, 9 Deputies), Operations Wing (2 Heads, 5 Deputies), Outreach Wing (2 Heads, 5 Deputies), and Photography Wing (2 Heads, 5 Deputies) with interactive category filter tabs.
 10. **Gallery & Lightbox**: Masonry image grid with category filter tabs and interactive lightbox modal.
 11. **Outreach & Impact**: Footfall counters, colleges reached, prize worth, and 70%/30% demographic distribution bars.
 12. **Why R&I**: 6 key value cards for prospective members.

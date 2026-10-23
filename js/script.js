@@ -295,7 +295,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ------------------------------------------------------------------------
-  // 7. Team Category Tabs
+  // 7. Team Category Tabs & Official Poster Lightbox Trigger
   // ------------------------------------------------------------------------
   const teamTabs = document.querySelectorAll('.team-tab-btn');
   const teamCards = document.querySelectorAll('.team-card');
@@ -307,13 +307,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const targetCategory = tab.getAttribute('data-team');
       teamCards.forEach(card => {
-        const category = card.getAttribute('data-team-category');
-        if (targetCategory === 'all' || category === targetCategory) {
-          card.style.display = 'block';
+        const categories = (card.getAttribute('data-team-category') || '').split(/\s+/);
+        if (targetCategory === 'all' || categories.includes(targetCategory)) {
+          card.style.display = '';
         } else {
           card.style.display = 'none';
         }
       });
+    });
+  });
+
+  // Open official Core Team poster in Lightbox
+  const posterTriggers = document.querySelectorAll('.team-poster-btn, .team-avatar-wrapper');
+  posterTriggers.forEach(trigger => {
+    trigger.addEventListener('click', (e) => {
+      const card = trigger.closest('.team-card');
+      const posterSrc = trigger.getAttribute('data-poster') || (card && card.querySelector('[data-poster]')?.getAttribute('data-poster'));
+      const caption = trigger.getAttribute('data-caption') || (card && card.querySelector('[data-caption]')?.getAttribute('data-caption'));
+      if (posterSrc && lightbox && lightboxImg) {
+        lightboxImg.src = posterSrc;
+        lightboxCaption.textContent = caption || 'R&I Club CBIT — Official Announcement';
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
     });
   });
 

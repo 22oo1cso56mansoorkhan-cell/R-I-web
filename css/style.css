@@ -1304,38 +1304,119 @@ button, input, textarea {
 
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
   gap: 30px;
+  justify-content: center;
 }
 
 .team-card {
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
-  padding: 24px;
+  padding: 26px 22px 22px;
   text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   transition: all var(--transition-normal);
+  backdrop-filter: blur(10px);
 }
 
 .team-card:hover {
   border-color: var(--border-cyan);
-  transform: translateY(-5px);
+  transform: translateY(-6px);
   background: var(--bg-card-hover);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.4), 0 0 25px rgba(0, 240, 255, 0.15);
+}
+
+.team-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 4px 14px;
+  border-radius: var(--radius-full);
+  margin-bottom: 16px;
+  background: rgba(0, 240, 255, 0.1);
+  color: var(--primary-cyan);
+  border: 1px solid rgba(0, 240, 255, 0.35);
+}
+
+.team-badge.gold {
+  background: rgba(255, 204, 0, 0.1);
+  color: #ffcc00;
+  border-color: rgba(255, 204, 0, 0.35);
+}
+
+.team-badge.purple {
+  background: rgba(168, 85, 247, 0.1);
+  color: #c084fc;
+  border-color: rgba(168, 85, 247, 0.35);
+}
+
+.team-badge.emerald {
+  background: rgba(16, 185, 129, 0.1);
+  color: #34d399;
+  border-color: rgba(16, 185, 129, 0.35);
+}
+
+.team-avatar-wrapper {
+  position: relative;
+  width: 136px;
+  height: 136px;
+  margin: 0 auto 16px auto;
+  cursor: pointer;
+  border-radius: 50%;
 }
 
 .team-img {
-  width: 130px;
-  height: 130px;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   object-fit: cover;
-  margin: 0 auto 20px auto;
   border: 3px solid var(--border-cyan);
-  box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+  box-shadow: 0 0 18px rgba(0, 240, 255, 0.25);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  display: block;
+}
+
+.team-avatar-wrapper:hover .team-img {
+  transform: scale(1.05);
+  box-shadow: 0 0 26px rgba(0, 240, 255, 0.45);
+}
+
+.team-poster-trigger {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: #0d131f;
+  border: 1.5px solid var(--primary-cyan);
+  color: var(--primary-cyan);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.82rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+  transition: all var(--transition-fast);
+}
+
+.team-avatar-wrapper:hover .team-poster-trigger {
+  background: var(--primary-cyan);
+  color: #080B12;
+  transform: scale(1.15);
 }
 
 .team-name {
   font-family: var(--font-heading);
-  font-size: 1.2rem;
+  font-size: 1.22rem;
   font-weight: 700;
   color: var(--text-main);
   margin-bottom: 4px;
@@ -1343,30 +1424,58 @@ button, input, textarea {
 
 .team-role {
   font-family: var(--font-heading);
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   color: var(--primary-cyan);
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.8px;
   margin-bottom: 12px;
 }
 
 .team-bio {
-  font-size: 0.85rem;
+  font-size: 0.84rem;
   color: var(--text-secondary);
   margin-bottom: 16px;
-  line-height: 1.5;
+  line-height: 1.55;
+  flex-grow: 1;
+}
+
+.team-poster-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: rgba(0, 240, 255, 0.08);
+  border: 1px solid rgba(0, 240, 255, 0.28);
+  color: var(--primary-cyan);
+  font-family: var(--font-heading);
+  font-size: 0.76rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  margin-bottom: 16px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.team-poster-btn:hover {
+  background: var(--primary-cyan);
+  color: #080B12;
+  border-color: var(--primary-cyan);
+  box-shadow: 0 0 14px rgba(0, 240, 255, 0.35);
+  transform: translateY(-1px);
 }
 
 .team-socials {
   display: flex;
   justify-content: center;
-  gap: 12px;
+  gap: 10px;
+  width: 100%;
 }
 
 .team-social-icon {
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--border-subtle);
   border-radius: 50%;
@@ -1374,6 +1483,8 @@ button, input, textarea {
   align-items: center;
   justify-content: center;
   color: var(--text-secondary);
+  font-size: 0.88rem;
+  text-decoration: none;
   transition: all var(--transition-fast);
 }
 
@@ -1381,6 +1492,7 @@ button, input, textarea {
   background: var(--primary-cyan);
   color: var(--bg-darker);
   border-color: var(--primary-cyan);
+  transform: translateY(-2px);
 }
 
 /* --------------------------------------------------------------------------
